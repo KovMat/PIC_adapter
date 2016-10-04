@@ -33,46 +33,57 @@ void gombTeszt()
     }
 }
 
-unsigned char szamok[] = {
-  //0bEGFDHCBA
-    0b01001000, //0
-    0b11111001, //1
-    0b00101100, //2
-    0b10101000, //3
-  //0bEGFDHCBA
-    0b10011001, //4
-    0b10001010, //5
-    0b00001010, //6
-    0b11111000, //7
-  //0bEGFDHCBA  
-    0b00001000, //8
-    0b10001000, //9
-    0b00011000, //A
-    0b00001011, //b
-  //0bEGFDHCBA
-    0b01001110, //C
-    0b00101001, //d
-    0b00001110, //E
-    0b00011110  //F
-  //0bEGFDHCBA
-};
+
+void initTimer0(){
+    TMR0 = 0;   // TMR0 init
+    T0CS = 0;   // internal clock
+    T0SE = 0;   // reacting on low2high edge
+    PSA = 0;    // Choosing to work with prescaler
+    PS0 = 1;
+    PS1 = 1;    // prescaler value divides in 256
+    PS2 = 1;
+    
+    T0IE = 1;   // enable timer0 interrupt
+    GIE = 1;    // enable global interrupts
+}
+
+unsigned char counter = 0;
+     //Main Interrupt Service Routine (ISR)
+void interrupt ISR() {
+    //Check if it is TMR0 Overflow ISR
+    if (TMR0IE && TMR0IF) {
+        //TMR0 Overflow ISR
+
+        counter++; //Increment Over Flow Counter
+
+        if (counter == 76) {
+            //Toggle RB1 (LED)
+            if (RB1 == 0)
+                RB1 = 1;
+            else
+                RB1 = 0;
+
+            counter = 0; //Reset Counter
+        }
+        //Clear Flag
+        TMR0IF = 0;
+    }
+}
+
+
 
 int main()
 {
   init_device();
-  int i = 0;
-    RB1=1;
-    __delay_ms(300);
-    RB1=0;  
-    __delay_ms(1000);
-  while(1)
-  {
-    RB1=1;
-    for(i=0 ; i<16 ; i++)
+  char Count = 0;
+  char led = 0;
+  RB1=0;
+  
+  initTimer0();
+  
+    while(1)
     {
-        PORTD = szamok[i];      // RB0 = 1;  // LED ON
-        __delay_ms(500);        // 1 Second Delay
+        porget_7seg();
     }
-  }
   return 0;
 }
