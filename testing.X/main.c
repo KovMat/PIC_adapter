@@ -21,7 +21,7 @@
 #pragma config CP = OFF // Flash Program Memory Code Protection bit (Code protection off)
 //END CONFIG
 
-
+unsigned char counter = 0;
 
 void gombTeszt()
 {
@@ -31,6 +31,15 @@ void gombTeszt()
     else {
         RB1 = 0;
     }
+}
+
+int lepes=0;
+void porget_7seg()
+{
+    if(lepes >= 16) lepes = 0; 
+    PORTD = szamok[lepes]; // RB0 = 1;  // LED ON
+    //__delay_ms(500);        // 1 Second Delay
+    
 }
 
 
@@ -47,7 +56,7 @@ void initTimer0(){
     GIE = 1;    // enable global interrupts
 }
 
-unsigned char counter = 0;
+
      //Main Interrupt Service Routine (ISR)
 void interrupt ISR() {
     //Check if it is TMR0 Overflow ISR
@@ -56,8 +65,9 @@ void interrupt ISR() {
 
         counter++; //Increment Over Flow Counter
 
-        if (counter == 76) {
+        if (counter == 13) {
             //Toggle RB1 (LED)
+            lepes++;
             if (RB1 == 0)
                 RB1 = 1;
             else

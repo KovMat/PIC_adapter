@@ -16,14 +16,3 @@ void init_device(){
   
   RB1 = 0; 
 }
-
-
-void porget_7seg()
-{
-    int i=0;
-    for(i=0 ; i<16 ; i++)
-    {
-        PORTD = szamok[i];      // RB0 = 1;  // LED ON
-        //__delay_ms(500);        // 1 Second Delay
-    }
-}
