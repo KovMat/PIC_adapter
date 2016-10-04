@@ -20,15 +20,21 @@
 #pragma config CP = OFF // Flash Program Memory Code Protection bit (Code protection off)
 //END CONFIG
 
+
+
+
+
+
 int main()
 {
-  TRISB0 = 0; //RB0 as Output PIN
+  TRISD = 0x00; //RB0 as Output PIN
+  
   while(1)
-  {
-    RB0 = 1;  // LED ON
-    __delay_ms(100); // 1 Second Delay
-    RB0 = 0;  // LED OFF
-    __delay_ms(500); // 1 Second Delay
+  {      
+    PORTD = 0x00;    //RB0 = 1;  // LED ON
+    __delay_ms(500);    // 1 Second Delay
+    PORTD = 0xFF;    //RB0 = 0;  // LED OFF
+    __delay_ms(500);    // 1 Second Delay
   }
   return 0;
 }
