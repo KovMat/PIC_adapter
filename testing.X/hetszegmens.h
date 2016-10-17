@@ -1,7 +1,12 @@
-#ifndef INIT_H
-#define	INIT_H
+/* 
+ * File:   hetszegmens.h
+ * Author: KovMat
+ *
+ * Created on October 13, 2016, 7:07 PM
+ */
 
-#include <xc.h> // include processor files - each processor file is guarded.  
+#ifndef HETSZEGMENS_H
+#define	HETSZEGMENS_H
 
 unsigned char szamok[] = {
   //0bEGFDHCBA
@@ -26,10 +31,9 @@ unsigned char szamok[] = {
     0b00011110  //F
   //0bEGFDHCBA
 };
+int lepes=0;
+void porget_7seg();
 
 
+#endif	/* HETSZEGMENS_H */
 
-void init_device();
-
-
-#endif	/* INIT_H */

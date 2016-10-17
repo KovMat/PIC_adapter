@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/KovMat/Dropbox/UNI/SZAKDOLGOZAT/Programs/PIC_adapter/testing.X/shiftreg.c</file>
             <file>file:/Users/KovMat/Dropbox/UNI/SZAKDOLGOZAT/Programs/PIC_adapter/testing.X/main.c</file>
-            <file>file:/Users/KovMat/Dropbox/UNI/SZAKDOLGOZAT/Programs/PIC_adapter/testing.X/init.h</file>
-            <file>file:/Users/KovMat/Dropbox/UNI/SZAKDOLGOZAT/Programs/PIC_adapter/testing.X/init.c</file>
+            <file>file:/Users/KovMat/Dropbox/UNI/SZAKDOLGOZAT/Programs/PIC_adapter/testing.X/timer.c</file>
+            <file>file:/Users/KovMat/Dropbox/UNI/SZAKDOLGOZAT/Programs/PIC_adapter/testing.X/ledek.c</file>
+            <file>file:/Users/KovMat/Dropbox/UNI/SZAKDOLGOZAT/Programs/PIC_adapter/testing.X/shiftreg.h</file>
+            <file>file:/Users/KovMat/Dropbox/UNI/SZAKDOLGOZAT/Programs/PIC_adapter/testing.X/timer.h</file>
+            <file>file:/Users/KovMat/Dropbox/UNI/SZAKDOLGOZAT/Programs/PIC_adapter/testing.X/ledek.h</file>
         </group>
     </open-files>
 </project-private>
