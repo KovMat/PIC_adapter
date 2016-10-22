@@ -5,23 +5,26 @@
         // RB4 -> clock input 
         // RB5 -> Strobe
    
+void clockpulse()
+{
+        RB4 = 0;
+        RB3 = 0;
+        
+        RB4 = 1;
+        RB3 = 1;
+
+        RB4 = 0;
+        RB3 = 0;
+}
 
 void shift_pulse(int ertek)
 {
-
-    RB2 = ertek;
     int i = 0;
+    RB2=0;
 
-    for (i = 0; i < 8; i++) {
-        RB5 = 0;
-        RB4 = 0;
+    clockpulse();
+    __delay_ms(1000);
+    clockpulse();
         
-        RB5 = 1;
-        RB4 = 1;
-
-        RB5 = 0;
-        RB4 = 0;
-        __delay_ms(1000);
-    }
     
 }

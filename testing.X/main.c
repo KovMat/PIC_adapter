@@ -20,33 +20,29 @@
 //END CONFIG
 
 void init_device(){
-  TRISD = 0x00;     // port D kimenet
+  //TRISD = 0x00;     // port D kimenet
   TRISB = 0x00;     // port b kimenet
-  TRISC = 0x00;     // port c kimenet
+  //TRISC = 0x00;     // port c kimenet
   
   // Timer0, 
   initTimer0();
   
   // port érték init
-  PORTD = 0x00;
+  //PORTD = 0x00;
 }
 
 int main()
 {
-  RB1 = 1;
+  
   init_device();
+  RB1 = 1;
   __delay_ms(2000);
   RB1 = 0;
   
   while(1)
   {         
-      /*RB1=1;
-      __delay_ms(200);
-      RB1=0;
-      __delay_ms(200);
-      */
       shift_pulse(1);
-      shift_pulse(0);
   }
+  
   return 0;
 }
